@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Registration Form</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 40px;
+    }
+
+    form {
+        background:turquoise;
+        padding: 25px;
+        width: 400px;
+        margin: auto;
+        border-radius: 5px;
+        box-shadow: 0 0 10px gray;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+        font-size: 16px;
+    }
+
+    .error {
+        color: red;
+        font-size: 14px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background: blue;
+        color: white;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: darkblue;
+    }
+    a{
+        text-decoration: none;
+        color: white;
+    }
+</style>
+</head>
+
+<body>
+
+<form onsubmit="return validateForm()">
+
+    <h2>LOG IN</h2>
+
+    
+
+    
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" id="email">
+        <span class="error" id="emailError"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="password">
+        <span class="error" id="passError"></span>
+    </div>
+
+    <button><a href="LUCKY.html">Register</a></button>
+
+</form>
+
+<script>
+
+function validateForm() {
+
+
+    let fname = document.getElementById("fname").value.trim();
+    let lname = document.getElementById("lname").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let userid = document.getElementById("userid").value.trim();
+    let password = document.getElementById("password").value.trim();
+
+    let fnameError = document.getElementById("fnameError");
+    let lnameError = document.getElementById("lnameError");
+    let emailError = document.getElementById("emailError");
+    let userError = document.getElementById("userError");
+    let passError = document.getElementById("passError");
+
+    
+    fnameError.innerHTML = "";
+    lnameError.innerHTML = "";
+    emailError.innerHTML = "";
+    userError.innerHTML = "";
+    passError.innerHTML = "";
+
+    let isValid = true;
+
+    
+    if (fname === "") {
+        fnameError.innerHTML = "First Name is required";
+        isValid = false;
+    }
+
+    
+    if (lname === "") {
+        lnameError.innerHTML = "Last Name is required";
+        isValid = false;
+    }
+
+
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if (email === "") {
+        emailError.innerHTML = "Email is required";
+        isValid = false;
+    }
+    else if (!email.match(emailPattern)) {
+        emailError.innerHTML = "Invalid email format";
+        isValid = false;
+    }
+
+    
+    if (userid === "") {
+        userError.innerHTML = "User ID is required";
+        isValid = false;
+    }
+
+    
+    if (password === "") {
+        passError.innerHTML = "Password is required";
+        isValid = false;
+    }
+    else if (password.length < 6) {
+        passError.innerHTML = "Minimum 6 characters";
+        isValid = false;
+    }
+
+    return isValid; 
+}
+
+</script>
+
+</body>
+</html>
