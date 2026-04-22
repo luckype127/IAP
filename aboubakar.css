@@ -6,9 +6,8 @@
 
 body {
     font-family: Arial, sans-serif;
-   
+    line-height: 1.5;
 }
-
 
 .navbar {
     display: flex;
@@ -17,12 +16,14 @@ body {
     padding: 20px;
     background: #222;
     color: white;
+    flex-wrap: wrap;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -30,20 +31,21 @@ body {
     text-decoration: none;
 }
 
-
 .hero {
     text-align: center;
     padding: 60px 20px;
     background: green;
+    color: white;
 }
 
 
 .features {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     padding: 40px;
 }
+
 
 .card {
     background: #eee;
@@ -54,7 +56,6 @@ body {
 
 
 .about {
-
     padding: 40px;
     text-align: center;
 }
@@ -69,41 +70,45 @@ footer {
 }
 
 
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-}
-
-.features {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-
 @media (max-width: 768px) {
-    .features {
-        grid-template-columns: repeat(2, 1fr);
-    }
 
     .navbar {
         flex-direction: column;
+        align-items: center;
+        text-align: center;
         gap: 10px;
+    }
+
+    .hero {
+        padding: 40px 15px;
+    }
+
+    .hero h2 {
+        font-size: 22px;
     }
 }
 
 
 @media (max-width: 480px) {
-    .features {
-        grid-template-columns: 1fr;
-    }
-
-    .hero h2 {
-        font-size: 20px;
-    }
 
     .nav-links {
         flex-direction: column;
-        align-items: center;
+        gap: 10px;
+    }
+
+    .features {
+        padding: 20px;
+    }
+
+    .hero h2 {
+        font-size: 18px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    footer {
+        font-size: 14px;
     }
 }
